@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import hero from "@/assets/hero.jpg";
+import hand from "@/assets/hand-sign.jpg";
 import soundtrack from "@/assets/ramalama.mp3.asset.json";
 import decoration from "@/assets/soundtrack-decoration.png.asset.json";
 
@@ -80,17 +81,17 @@ function Invitation() {
         </div>
       </section>
 
-      {/* GREETING */}
-      <section className="relative mx-auto flex min-h-[60svh] max-w-xl flex-col items-center justify-center overflow-hidden px-6 py-24 text-center">
-        <div className="moon-halo pointer-events-none absolute left-1/2 top-1/2 h-[70vw] max-h-[420px] w-[70vw] max-w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40" />
-        <div className="relative z-10 rise">
-          <Label>Bajo la luna de sangre</Label>
-          <h2 className="mt-6 font-display text-[13vw] leading-[0.95] tracking-wide text-foreground text-glow sm:text-7xl">
-            NOS VEMOS
-          </h2>
-          <p className="mt-4 flex items-center justify-center gap-3 font-serif text-2xl italic tracking-[0.25em] text-blood sm:text-3xl">
-            <span className="h-px w-8 bg-blood" />BAJO LA LUNA<span className="h-px w-8 bg-blood" />
-          </p>
+      {/* HAND SIGN */}
+      <section className="relative mx-auto max-w-xl px-6 py-16">
+        <div className="relative aspect-[896/1200] w-full overflow-hidden">
+          <img src={hand} alt="Mano con garras sosteniendo un letrero" loading="lazy" width={896} height={1200}
+            className="monochrome absolute inset-0 h-full w-full object-cover" />
+          <div className="vignette absolute inset-0" />
+          <div className="absolute bottom-[38%] left-[10%] right-[8%] top-[41%] flex rotate-[4deg] flex-col items-center justify-center gap-[3%] text-center text-ink">
+            <p className="font-display text-[12vw] leading-[0.88] tracking-wide sm:text-7xl">NOS VEMOS</p>
+            <span className="h-[2px] w-[44%] bg-ink/70" />
+            <p className="font-serif text-[5.6vw] font-semibold italic tracking-[0.12em] text-blood sm:text-3xl">BAJO LA LUNA</p>
+          </div>
         </div>
       </section>
 
