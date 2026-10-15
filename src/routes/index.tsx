@@ -3,6 +3,8 @@ import hero from "@/assets/hero.jpg";
 import hand from "@/assets/hand-sign.jpg";
 
 const MAPS = "https://maps.app.goo.gl/c9mpb8LCcQWD8zrn9";
+const SPOTIFY = "https://open.spotify.com/track/1i4JlWqVDl8nG8lL6ybjuN";
+const YOUTUBE = "https://www.youtube.com/results?search_query=Ramalama+Bang+Bang+R%C3%B3is%C3%ADn+Murphy";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,6 +77,34 @@ function Invitation() {
               </div>
               <p className="font-display text-[7vw] leading-tight text-ink sm:text-5xl">$200</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOUNDTRACK */}
+      <section className="relative mx-auto max-w-xl px-6 py-16">
+        <Label>Soundtrack de la noche</Label>
+        <div className="mt-6 border border-blood/60 bg-card/40 p-6">
+          <div className="flex h-10 items-end gap-[3px]" aria-hidden="true">
+            {Array.from({ length: 24 }).map((_, i) => (
+              <span key={i} className="eq-bar h-full"
+                style={{ animationDelay: `${(i % 6) * 0.13}s`, animationDuration: `${680 + (i % 5) * 190}ms` }} />
+            ))}
+          </div>
+          <h2 className="mt-6 font-display text-5xl leading-[0.9] tracking-wide text-foreground text-glow sm:text-6xl">
+            RAMALAMA
+            <span className="block text-blood">(BANG BANG)</span>
+          </h2>
+          <p className="mt-4 font-mono text-[11px] tracking-[0.28em] text-steel">RÓISÍN MURPHY · RUBY BLUE · 2005</p>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            <a href={SPOTIFY} target="_blank" rel="noopener noreferrer"
+              className="bg-primary py-4 text-center font-mono text-xs font-bold tracking-[0.3em] text-primary-foreground transition hover:bg-foreground hover:text-background">
+              ESCUCHAR EN SPOTIFY
+            </a>
+            <a href={YOUTUBE} target="_blank" rel="noopener noreferrer"
+              className="border border-border py-4 text-center font-mono text-xs font-bold tracking-[0.3em] text-foreground transition hover:border-blood hover:text-blood">
+              VER EN YOUTUBE
+            </a>
           </div>
         </div>
       </section>

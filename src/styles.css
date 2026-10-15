@@ -96,3 +96,15 @@
 @utility monochrome { filter: grayscale(1) contrast(1.15) brightness(.85); }
 @utility red-wash { background: var(--blood); mix-blend-mode: multiply; opacity: .35; }
 @utility text-glow { text-shadow: 0 0 40px color-mix(in oklab, var(--blood) 60%, transparent); }
+
+@keyframes eq { 0%,100% { transform: scaleY(.22); } 50% { transform: scaleY(1); } }
+@utility eq-bar {
+  display: block;
+  width: 3px;
+  background: linear-gradient(to top, var(--blood), color-mix(in oklab, var(--blood) 40%, var(--foreground)));
+  transform-origin: bottom;
+  animation: eq 900ms ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .eq-bar { animation: none; transform: scaleY(.6); }
+}
