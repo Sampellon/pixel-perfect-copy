@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import hero from "@/assets/hero.jpg";
-import hand from "@/assets/hand-sign.jpg";
 import soundtrack from "@/assets/ramalama.mp3.asset.json";
 import decoration from "@/assets/soundtrack-decoration.png.asset.json";
 
@@ -81,31 +80,20 @@ function Invitation() {
         </div>
       </section>
 
-      {/* PRICES */}
-      <section className="relative mx-auto max-w-xl px-6 py-16">
-        <Label>Acceso</Label>
-        <div className="relative mt-6 aspect-[896/1200] w-full overflow-hidden">
-          <img src={hand} alt="Mano sosteniendo un letrero con los precios" loading="lazy" width={896} height={1200}
-            className="monochrome absolute inset-0 h-full w-full object-cover" />
-          <div className="vignette absolute inset-0" />
-          <div className="absolute left-[8%] right-[6%] top-[43%] bottom-[30%] flex rotate-[1.5deg] flex-col justify-center gap-[4%] text-ink">
-            <div className="flex items-end justify-between gap-3 border-b-2 border-ink pb-2">
-              <div className="text-left">
-                <p className="font-mono text-[2.4vw] font-bold tracking-[0.2em] sm:text-sm">PREVENTA</p>
-                <p className="font-mono text-[2vw] sm:text-[11px]">POR PERSONA</p>
-              </div>
-              <p className="bg-ink px-3 font-display text-[11vw] leading-tight text-blood sm:text-7xl">$150</p>
-            </div>
-            <div className="flex items-end justify-between gap-3">
-              <div className="text-left">
-                <p className="font-mono text-[2.4vw] font-bold tracking-[0.2em] sm:text-sm">DÍA DEL EVENTO</p>
-                <p className="font-mono text-[2vw] sm:text-[11px]">POR PERSONA</p>
-              </div>
-              <p className="font-display text-[7vw] leading-tight text-ink sm:text-5xl">$200</p>
-            </div>
-          </div>
+      {/* GREETING */}
+      <section className="relative mx-auto flex min-h-[60svh] max-w-xl flex-col items-center justify-center overflow-hidden px-6 py-24 text-center">
+        <div className="moon-halo pointer-events-none absolute left-1/2 top-1/2 h-[70vw] max-h-[420px] w-[70vw] max-w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40" />
+        <div className="relative z-10 rise">
+          <Label>Bajo la luna de sangre</Label>
+          <h2 className="mt-6 font-display text-[13vw] leading-[0.95] tracking-wide text-foreground text-glow sm:text-7xl">
+            NOS VEMOS
+          </h2>
+          <p className="mt-4 flex items-center justify-center gap-3 font-serif text-2xl italic tracking-[0.25em] text-blood sm:text-3xl">
+            <span className="h-px w-8 bg-blood" />BAJO LA LUNA<span className="h-px w-8 bg-blood" />
+          </p>
         </div>
       </section>
+
 
       {/* SOUNDTRACK */}
       <div className="relative mx-auto max-w-xl px-6 pb-16" aria-hidden="true">
