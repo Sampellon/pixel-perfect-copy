@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import hero from "@/assets/hero.jpg";
 import hand from "@/assets/hand-sign.jpg";
+import soundtrack from "@/assets/ramalama.mp3.asset.json";
+import decoration from "@/assets/soundtrack-decoration.png.asset.json";
 
 const MAPS = "https://maps.app.goo.gl/c9mpb8LCcQWD8zrn9";
-const SPOTIFY = "https://open.spotify.com/track/1i4JlWqVDl8nG8lL6ybjuN";
-const YOUTUBE = "https://www.youtube.com/results?search_query=Ramalama+Bang+Bang+R%C3%B3is%C3%ADn+Murphy";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,8 +26,33 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 function Invitation() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const play = () => {
+      if (!audio.paused) return;
+      void audio.play().then(() => {
+        document.removeEventListener("pointerdown", play);
+        document.removeEventListener("keydown", play);
+      }).catch(() => {
+        // Browsers may require a guest's first gesture before audible playback.
+      });
+    };
+    document.addEventListener("pointerdown", play);
+    document.addEventListener("keydown", play);
+    play();
+    return () => {
+      document.removeEventListener("pointerdown", play);
+      document.removeEventListener("keydown", play);
+      audio.pause();
+    };
+  }, []);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
+      <audio ref={audioRef} src={soundtrack.url} autoPlay loop preload="auto" />
       <div className="grain fixed -inset-[50%] z-50" />
 
       {/* HERO */}
@@ -82,32 +108,9 @@ function Invitation() {
       </section>
 
       {/* SOUNDTRACK */}
-      <section className="relative mx-auto max-w-xl px-6 py-16">
-        <Label>Soundtrack de la noche</Label>
-        <div className="mt-6 border border-blood/60 bg-card/40 p-6">
-          <div className="flex h-10 items-end gap-[3px]" aria-hidden="true">
-            {Array.from({ length: 24 }).map((_, i) => (
-              <span key={i} className="eq-bar h-full"
-                style={{ animationDelay: `${(i % 6) * 0.13}s`, animationDuration: `${680 + (i % 5) * 190}ms` }} />
-            ))}
-          </div>
-          <h2 className="mt-6 font-display text-5xl leading-[0.9] tracking-wide text-foreground text-glow sm:text-6xl">
-            RAMALAMA
-            <span className="block text-blood">(BANG BANG)</span>
-          </h2>
-          <p className="mt-4 font-mono text-[11px] tracking-[0.28em] text-steel">RÓISÍN MURPHY · RUBY BLUE · 2005</p>
-          <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            <a href={SPOTIFY} target="_blank" rel="noopener noreferrer"
-              className="bg-primary py-4 text-center font-mono text-xs font-bold tracking-[0.3em] text-primary-foreground transition hover:bg-foreground hover:text-background">
-              ESCUCHAR EN SPOTIFY
-            </a>
-            <a href={YOUTUBE} target="_blank" rel="noopener noreferrer"
-              className="border border-border py-4 text-center font-mono text-xs font-bold tracking-[0.3em] text-foreground transition hover:border-blood hover:text-blood">
-              VER EN YOUTUBE
-            </a>
-          </div>
-        </div>
-      </section>
+      <div className="relative mx-auto max-w-xl px-6 pb-16" aria-hidden="true">
+        <img src={decoration.url} alt="" width={1124} height={206} className="block h-auto w-full" />
+      </div>
 
       {/* DETAILS */}
       <section className="relative mx-auto max-w-xl px-6 pb-24">
