@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import hero from "@/assets/hero.jpg";
 import hand from "@/assets/hand-sign.jpg";
-import soundtrack from "@/assets/ramalama.mp3.asset.json";
-import decoration from "@/assets/soundtrack-decoration.png.asset.json";
+import soundtrack from "@/assets/ramalama.mp3";
+import decoration from "@/assets/soundtrack-decoration.png";
 
 const MAPS = "https://maps.app.goo.gl/c9mpb8LCcQWD8zrn9";
 
@@ -52,7 +52,7 @@ function Invitation() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      <audio ref={audioRef} src={soundtrack.url} autoPlay loop preload="auto" />
+      <audio ref={audioRef} src={soundtrack} autoPlay loop preload="auto" />
       <div className="grain fixed -inset-[50%] z-50" />
 
       {/* HERO */}
@@ -98,7 +98,7 @@ function Invitation() {
 
       {/* SOUNDTRACK */}
       <div className="relative mx-auto max-w-xl px-6 pb-16" aria-hidden="true">
-        <img src={decoration.url} alt="" width={1124} height={206} className="block h-auto w-full" />
+        <img src={decoration} alt="" width={1124} height={206} className="block h-auto w-full" />
       </div>
 
       {/* DETAILS */}
