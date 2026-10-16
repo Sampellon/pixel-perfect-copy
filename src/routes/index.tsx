@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import hero from "@/assets/hero.jpg";
 import hand from "@/assets/hand-sign.jpg";
-import soundtrack from "@/assets/ramalama.mp3.asset.json";
-import decoration from "@/assets/soundtrack-decoration.png.asset.json";
+import soundtrack from "@/assets/ramalama.mp3";
+import decoration from "@/assets/soundtrack-decoration.png";
 
 const MAPS = "https://maps.app.goo.gl/c9mpb8LCcQWD8zrn9";
 
@@ -52,7 +52,7 @@ function Invitation() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      <audio ref={audioRef} src={soundtrack.url} autoPlay loop preload="auto" />
+      <audio ref={audioRef} src={soundtrack} autoPlay loop preload="auto" />
       <div className="grain fixed -inset-[50%] z-50" />
 
       {/* HERO */}
@@ -87,7 +87,7 @@ function Invitation() {
           <img src={hand} alt="Mano con garras sosteniendo un letrero" loading="lazy" width={896} height={1200}
             className="monochrome absolute inset-0 h-full w-full object-cover" />
           <div className="vignette absolute inset-0" />
-          <div className="absolute bottom-[38%] left-[10%] right-[8%] top-[41%] flex rotate-[4deg] flex-col items-center justify-center gap-[3%] text-center text-ink">
+          <div className="absolute bottom-[38%] left-[10%] right-[8%] top-[41%] flex rotate-[5deg] flex-col items-center justify-center gap-[3%] text-center text-ink">
             <p className="font-display text-[12vw] leading-[0.88] tracking-wide sm:text-7xl">NOS VEMOS</p>
             <span className="h-[2px] w-[44%] bg-ink/70" />
             <p className="font-serif text-[5.6vw] font-semibold italic tracking-[0.12em] text-blood sm:text-3xl">BAJO LA LUNA</p>
@@ -98,7 +98,7 @@ function Invitation() {
 
       {/* SOUNDTRACK */}
       <div className="relative mx-auto max-w-xl px-6 pb-16" aria-hidden="true">
-        <img src={decoration.url} alt="" width={1124} height={206} className="block h-auto w-full" />
+        <img src={decoration} alt="" width={1124} height={206} className="block h-auto w-full" />
       </div>
 
       {/* DETAILS */}
