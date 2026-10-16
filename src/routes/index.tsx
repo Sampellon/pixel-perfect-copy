@@ -87,7 +87,7 @@ function Invitation() {
           <img src={hand} alt="Mano con garras sosteniendo un letrero" loading="lazy" width={896} height={1200}
             className="monochrome absolute inset-0 h-full w-full object-cover" />
           <div className="vignette absolute inset-0" />
-          <div className="absolute bottom-[38%] left-[10%] right-[8%] top-[41%] flex rotate-[4deg] flex-col items-center justify-center gap-[3%] text-center text-ink">
+          <div className="absolute bottom-[38%] left-[10%] right-[8%] top-[41%] flex rotate-[5deg] flex-col items-center justify-center gap-[3%] text-center text-ink">
             <p className="font-display text-[12vw] leading-[0.88] tracking-wide sm:text-7xl">NOS VEMOS</p>
             <span className="h-[2px] w-[44%] bg-ink/70" />
             <p className="font-serif text-[5.6vw] font-semibold italic tracking-[0.12em] text-blood sm:text-3xl">BAJO LA LUNA</p>
