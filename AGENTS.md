@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Invitation background audio uses a native audio element with an opening playback attempt and first-gesture retry, because browsers can block audible autoplay.
-- Uploaded invitation media is served through Lovable Assets pointers to keep binary files out of the source repository.
+- Invitation media (images, audio) is committed as real files under src/assets and imported directly, never externalized to Lovable Assets pointers, because the user deploys the app outside Lovable and external pointers would leave those files behind.
